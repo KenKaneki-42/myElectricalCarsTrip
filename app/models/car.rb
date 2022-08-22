@@ -1,6 +1,6 @@
 class Car < ApplicationRecord
-  belongs_to :user
+  belongs_to :owner, class_name: "User"
 
   has_many :rentals
-  has_many :users, through: :rentals
+  has_many :renters, through: :rentals
 end

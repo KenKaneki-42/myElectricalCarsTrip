@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :rentals
-  has_many :cars, through: :rentals
+  has_many :rentals, foreign_key: :renter_id
+  has_many :cars, foreign_key: :owner_id
 end

@@ -5,7 +5,7 @@ class CreateCars < ActiveRecord::Migration[7.0]
       t.string :brand
       t.string :model
       t.string :description
-      t.references :user, null: false, foreign_key: true
+      t.references :owner, null: false, foreign_key: { to_table: 'users' }
       t.integer :daily_price
 
       t.timestamps

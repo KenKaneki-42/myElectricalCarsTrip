@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :rentals, foreign_key: :renter_id
   has_many :cars, foreign_key: :owner_id
+
+  has_one_attached :photo
 end

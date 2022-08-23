@@ -1,0 +1,49 @@
+
+
+<div class="container d-flex flex-wrap">
+
+
+  <% @cars.each do |car| %>
+    <div class="card card-cars no-border">
+    <%= image_tag url(:small), class:"img_preview" %>
+      <%= cl_image_tag("#{car.photo.key}", :class => "img_preview") %>
+      <div class="card-body card-text">
+        <div class="d-flex justify-content-between">
+          <h3><%= "#{car.brand + " " + car.model}" %></h3>
+          <h3><%= car.autonomy %></h3>
+        </div>
+        <h1><%= car.owner %></h1>
+        <p><%= car.description %></p>
+      </div>
+
+    </div>
+  <% end %>
+
+  <%# <div class="card card-cars no-border">
+    <img src="..." class="card-img-top card-img" alt="...">
+    <div class="card-body card-text">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+
+  <div class="card card-cars no-border">
+    <img src="..." class="card-img-top card-img" alt="...">
+    <div class="card-body card-text">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+
+  <div class="card card-cars no-border">
+    <img src="..." class="card-img-top card-img" alt="...">
+    <div class="card-body card-text">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+
+  <div class="card card-cars no-border">
+    <img src="..." class="card-img-top card-img" alt="...">
+    <div class="card-body card-text">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div> %>
+</div>

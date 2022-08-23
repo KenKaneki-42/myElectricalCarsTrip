@@ -3,4 +3,6 @@ class Car < ApplicationRecord
 
   has_many :rentals
   has_many :renters, through: :rentals
+
+  has_one_attached :photo
 end

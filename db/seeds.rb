@@ -5,10 +5,7 @@
 #
 #   movies = Movie.create!([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
-
-
-
+require "open-uri"
 
 p 'Delete ancient seeds' # à classer du plus précis au moins
 Rental.destroy_all
@@ -19,6 +16,8 @@ User.destroy_all
 # "car.create.owner:User"
 # Creation of users and cars
 
+
+
 user1 = User.create!(
   email: "sylvain.vandermeersch@gmail.com",
   password: "123456",
@@ -26,6 +25,8 @@ user1 = User.create!(
   last_name: " Vandermeersch",
   age: 28
 )
+file1 = URI.open("https://avatars.githubusercontent.com/u/106041442?v=4")
+user1.photo.attach(io: file1, filename: "user1.jpg", content_type: "image/jpeg")
 
 user2 = User.create!(
   email: "vinny.algaron@gmail.com",
@@ -34,6 +35,8 @@ user2 = User.create!(
   last_name: "Algaron",
   age: 29
 )
+file2 = URI.open("https://avatars.githubusercontent.com/u/108010616?v=4")
+user2.photo.attach(io: file2, filename: "user2.jpg", content_type: "image/jpeg")
 
 user3 = User.create!(
   email: "melvin.darvieux@gmail.com",
@@ -42,6 +45,8 @@ user3 = User.create!(
   last_name: " Darvieux",
   age: 24
 )
+file3 = URI.open("https://avatars.githubusercontent.com/u/105221230?v=4")
+user3.photo.attach(io: file3, filename: "user3.jpg", content_type: "image/jpeg")
 
 user4 = User.create!(
   email: "elon.musk@gmail.com",
@@ -50,6 +55,8 @@ user4 = User.create!(
   last_name: " Musk",
   age: 49
 )
+file4 = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Elon_Musk_Royal_Society.jpg/400px-Elon_Musk_Royal_Society.jpg")
+user4.photo.attach(io: file4, filename: "user4.jpg", content_type: "image/jpeg")
 
 user5 = User.create!(
   email: "greta.thunberg@gmail.com",
@@ -58,6 +65,8 @@ user5 = User.create!(
   last_name: "Thunberg",
   age: 19
 )
+file5 = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Greta_Thunberg%2C_March_2020_%28cropped%29.jpg/520px-Greta_Thunberg%2C_March_2020_%28cropped%29.jpg")
+user5.photo.attach(io: file5, filename: "user5.jpg", content_type: "image/jpeg")
 
 p 'Saving new users'
 
@@ -69,6 +78,8 @@ car1 = Car.create!(
   daily_price: 129,
   owner: user1
 )
+file6 = URI.open("https://media.ed.edmunds-media.com/tesla/model-3/2022/oem/2022_tesla_model-3_sedan_performance_fq_oem_1_815.jpg")
+car1.photo.attach(io: file6, filename: "car1.jpg", content_type: "image/jpeg")
 
 car2 = Car.create!(
   brand: "Kia",
@@ -78,6 +89,8 @@ car2 = Car.create!(
   daily_price: 119,
   owner: user1
 )
+file7 = URI.open("https://media.ed.edmunds-media.com/kia/niro-ev/2022/oem/2022_kia_niro-ev_4dr-suv_ex-premium_fq_oem_1_815.jpg")
+car2.photo.attach(io: file7, filename: "car2.jpg", content_type: "image/jpeg")
 
 car3 = Car.create!(
   brand: "Volkswagen",
@@ -87,6 +100,8 @@ car3 = Car.create!(
   daily_price: 109,
   owner: user1
 )
+file8 = URI.open("https://media.ed.edmunds-media.com/volkswagen/id4/2021/oem/2021_volkswagen_id4_4dr-suv_awd-pro-s-statement_fq_oem_1_815.jpg")
+car3.photo.attach(io: file8, filename: "car3.jpg", content_type: "image/jpeg")
 
 car4 = Car.create!(
   brand: "Hyundai",
@@ -96,6 +111,8 @@ car4 = Car.create!(
   daily_price: 119,
   owner: user1
 )
+file9 = URI.open("https://media.ed.edmunds-media.com/hyundai/kona-electric/2019/oem/2019_hyundai_kona-electric_4dr-suv_ultimate_fq_oem_1_815.jpg")
+car4.photo.attach(io: file9, filename: "car4.jpg", content_type: "image/jpeg")
 
 car5 = Car.create!(
   brand: "Chevrolet",
@@ -105,6 +122,8 @@ car5 = Car.create!(
   daily_price: 99,
   owner: user2
 )
+file10 = URI.open("https://media.ed.edmunds-media.com/chevrolet/bolt-ev/2022/oem/2022_chevrolet_bolt-ev_4dr-hatchback_2lt_fq_oem_1_815.jpg")
+car5.photo.attach(io: file10, filename: "car5.jpg", content_type: "image/jpeg")
 
 car6 = Car.create!(
   brand: "Nissan",
@@ -114,6 +133,8 @@ car6 = Car.create!(
   daily_price: 89,
   owner: user2
 )
+file11 = URI.open("https://media.ed.edmunds-media.com/nissan/leaf/2020/oem/2020_nissan_leaf_4dr-hatchback_sl-plus_fq_oem_1_815.jpg")
+car6.photo.attach(io: file11, filename: "car6.jpg", content_type: "image/jpeg")
 
 car7 = Car.create!(
   brand: "Hyundai",
@@ -123,6 +144,8 @@ car7 = Car.create!(
   daily_price: 109,
   owner: user2
 )
+file12 = URI.open("https://media.ed.edmunds-media.com/hyundai/ioniq-electric/2020/oem/2020_hyundai_ioniq-electric_4dr-hatchback_limited_fq_oem_1_815.jpg")
+car7.photo.attach(io: file12, filename: "car7.jpg", content_type: "image/jpeg")
 
 car8 = Car.create!(
   brand: "MINI",
@@ -132,6 +155,8 @@ car8 = Car.create!(
   daily_price: 79,
   owner: user2
 )
+file13 = URI.open("https://media.ed.edmunds-media.com/mini/hardtop-2-door/2021/oem/2021_mini_hardtop-2-door_2dr-hatchback_cooper-se_fq_oem_1_815.jpg")
+car8.photo.attach(io: file13, filename: "car8.jpg", content_type: "image/jpeg")
 
 car9 = Car.create!(
   brand: "Mazda",
@@ -141,6 +166,8 @@ car9 = Car.create!(
   daily_price: 69,
   owner: user3
 )
+file14 = URI.open("https://media.ed.edmunds-media.com/mazda/mx-30/2022/oem/2022_mazda_mx-30_4dr-suv_base_fq_oem_1_815.jpg")
+car9.photo.attach(io: file14, filename: "car9.jpg", content_type: "image/jpeg")
 
 car10 = Car.create!(
   brand: "Toyota",
@@ -150,6 +177,8 @@ car10 = Car.create!(
   daily_price: 109,
   owner: user3
 )
+file15 = URI.open("https://media.ed.edmunds-media.com/toyota/bz4x/2023/oem/2023_toyota_bz4x_4dr-suv_limited_fq_oem_1_815.jpg")
+car10.photo.attach(io: file15, filename: "car10.jpg", content_type: "image/jpeg")
 
 car11 = Car.create!(
   brand: "Polestar",
@@ -159,6 +188,8 @@ car11 = Car.create!(
   daily_price: 209,
   owner: user3
 )
+file16 = URI.open("https://media.ed.edmunds-media.com/non-make/hero/hero_81221_815.jpg")
+car11.photo.attach(io: file16, filename: "car11.jpg", content_type: "image/jpeg")
 
 car12 = Car.create!(
   brand: "BMW",
@@ -168,6 +199,8 @@ car12 = Car.create!(
   daily_price: 189,
   owner: user3
 )
+file17 = URI.open("https://media.ed.edmunds-media.com/bmw/i4/2022/oem/2022_bmw_i4_sedan_m50_fq_oem_1_815.jpg")
+car12.photo.attach(io: file17, filename: "car12.jpg", content_type: "image/jpeg")
 
 
 p 'Saving new cars'

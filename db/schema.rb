@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_22_154412) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_23_103215) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_22_154412) do
     t.integer "autonomy"
     t.string "brand"
     t.string "model"
-    t.string "description"
+    t.text "description"
     t.bigint "owner_id", null: false
     t.integer "daily_price"
     t.datetime "created_at", null: false
@@ -28,14 +28,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_22_154412) do
 
   create_table "rentals", force: :cascade do |t|
     t.bigint "car_id", null: false
-    t.string "beginning_date"
-    t.string "ending_date"
     t.bigint "renter_id", null: false
     t.integer "total_price"
     t.string "status"
-    t.string "comment"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "beginning_date"
+    t.date "ending_date"
     t.index ["car_id"], name: "index_rentals_on_car_id"
     t.index ["renter_id"], name: "index_rentals_on_renter_id"
   end

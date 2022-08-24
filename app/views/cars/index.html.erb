@@ -10,15 +10,15 @@
         <div class="card-body card-text-section">
           <div class="d-flex justify-content-between">
             <p><strong><%= "#{car.model}" %></strong></p>
-            <div>
-              <p>autonomy</p>
-              <p style="color: #FD1015"><strong><%= car.autonomy %></strong> kms</p>
+            <div style="margin-top: 3px">
+              <p style="font-size: smaller"><strong>autonomy</strong></p>
+              <p style="color: #1555a6; margin-bottom: 10px"><strong><%= (car.autonomy*1.60934).round(1) %></strong> kms</p>
             </div>
           </div>
           <p><strong><%= "#{car.owner.first_name + " " + car.owner.last_name}" %></strong></p>
           <p><%= car.description[0..90] %>...</p>
         </div>
-
+        <p class="price" style="color: #1555a6"><%= car.daily_price %>€/day</p>
       <% end %>
     </div>
   <% end %>

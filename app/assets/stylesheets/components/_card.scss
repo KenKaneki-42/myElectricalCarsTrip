@@ -8,9 +8,10 @@
   margin: 20px 1.5%;
   background-color: rgb(244, 244, 244);
   border-radius: 8px;
+  position: relative;
   a {
     text-decoration: none;
-    color: gray;
+    color: #3b5064;
     height: fit-content;
   }
   &:hover{
@@ -26,7 +27,6 @@
 .card-text-section{
   max-height: fit-content(30%);
   font-size: 12px;
-  position: relative;
   p{
     padding: 0;
     margin: 0;
@@ -42,7 +42,7 @@
 .price{
   color: #1EDD88;
   position: absolute;
-  bottom: 15px;
-  right: 5px;
+  bottom: 7px;
+  right: 45px;
   font-size: large;
 }

@@ -1,0 +1,26 @@
+<h1>Show Car</h1>
+
+<div class="d-flex">
+  <div class="card card-car no-border">
+    <%= cl_image_tag("#{@car.photo.key}", :class => "card-img") %>
+    <div class="card-body card-text-section">
+      <div class="d-flex justify-content-between">
+        <p><strong><%= "#{@car.model}" %></strong></p>
+        <div>
+          <p>autonomy</p>
+          <p style="color: #FD1015"><strong><%= @car.autonomy %></strong> kms</p>
+        </div>
+      </div>
+      <p><strong><%= "#{@car.owner.first_name + " " + @car.owner.last_name}" %></strong></p>
+      <p><%= @car.description %></p>
+    </div>
+  </div>
+  <div>
+    <%= simple_form_for(@rental) do |f| %>
+      <%= f.input :beginning_date %>
+      <%= f.input :ending_date %>
+      <%= f.input :comment %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

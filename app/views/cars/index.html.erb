@@ -5,17 +5,20 @@
 
   <% @cars.each do |car| %>
     <div class="card card-cars no-border">
-    <%= image_tag url(:small), class:"img_preview" %>
-      <%= cl_image_tag("#{car.photo.key}", :class => "img_preview") %>
-      <div class="card-body card-text">
-        <div class="d-flex justify-content-between">
-          <h3><%= "#{car.brand + " " + car.model}" %></h3>
-          <h3><%= car.autonomy %></h3>
+      <%= link_to car_path(car) do %>
+        <%= cl_image_tag("#{car.photo.key}", :class => "card-img") %>
+        <div class="card-body card-text-section">
+          <div class="d-flex justify-content-between">
+            <p><strong><%= "#{car.model}" %></strong></p>
+            <div>
+              <p>autonomy</p>
+              <p><strong><%= car.autonomy %></strong> kms</p>
+            </div>
+          </div>
+          <p><strong><%= "#{car.owner.first_name + " " + car.owner.last_name}" %></strong></p>
+          <p><%= car.description[0..90] %>...</p>
         </div>
-        <h1><%= car.owner %></h1>
-        <p><%= car.description %></p>
-      </div>
-
+      <% end %>
     </div>
   <% end %>
 

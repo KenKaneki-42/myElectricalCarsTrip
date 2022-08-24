@@ -3,18 +3,37 @@
 }
 
 .card-cars{
-  height: 40vh !important;
+  height: 60vh !important;
   width: 22%;
   margin: 20px 1.5%;
   background-color: rgb(244, 244, 244);
+  border-radius: 8px;
+  a {
+    text-decoration: none;
+    color: gray;
+    height: fit-content;
+  }
+  &:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
 }
 
 .card-img{
-  height: 65%;
+  height: 70%;
   border-radius: 8px;
 }
 
-.card-text{
-  max-height: fit-content(35%);
+.card-text-section{
+  max-height: fit-content(30%);
+  font-size: 12px;
+  p{
+    padding: 0;
+    margin: 0;
+  }
 
+}
+
+.card-link{
+  height: 50vh;
+  width: 22%;
 }

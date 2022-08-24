@@ -11,7 +11,14 @@ class RentalsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-end
+  end
+
+
+  def show
+    @rentals = Rental.where(":renter_id = #{params[renter]}")
+
+  end
+
 
   private
 

@@ -1,0 +1,53 @@
+
+
+<div class="container d-flex flex-wrap">
+
+
+  <% @cars.each do |car| %>
+    <div class="card card-cars no-border">
+      <%= link_to car_path(car) do %>
+        <%= cl_image_tag("#{car.photo.key}", :class => "card-img") %>
+        <div class="card-body card-text-section">
+          <div class="d-flex justify-content-between">
+            <p><strong><%= "#{car.model}" %></strong></p>
+            <div style="margin-top: 3px">
+              <p style="font-size: smaller"><strong>autonomy</strong></p>
+              <p style="color: #1555a6; margin-bottom: 10px"><strong><%= (car.autonomy*1.60934).round(1) %></strong> kms</p>
+            </div>
+          </div>
+          <p><strong><%= "#{car.owner.first_name + " " + car.owner.last_name}" %></strong></p>
+          <p><%= car.description[0..90] %>...</p>
+        </div>
+        <p class="price" style="color: #1555a6"><%= car.daily_price %>€/day</p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%# <div class="card card-cars no-border">
+    <img src="..." class="card-img-top card-img" alt="...">
+    <div class="card-body card-text">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+
+  <div class="card card-cars no-border">
+    <img src="..." class="card-img-top card-img" alt="...">
+    <div class="card-body card-text">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+
+  <div class="card card-cars no-border">
+    <img src="..." class="card-img-top card-img" alt="...">
+    <div class="card-body card-text">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+
+  <div class="card card-cars no-border">
+    <img src="..." class="card-img-top card-img" alt="...">
+    <div class="card-body card-text">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div> %>
+</div>

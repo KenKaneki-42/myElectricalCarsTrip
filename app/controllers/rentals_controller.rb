@@ -2,16 +2,16 @@ class RentalsController < ApplicationController
 
   def create
     @rental = Rental.new(rental_params)
-    raise
+    @car = Car.find(params[:car_id])
     @rental.car = @car # id pour foreign key
     @rental.status = "pending"
-    @rental.save!
-    # if @rental.save
-    #   redirect_to car_path(@car)
-    # else
-    #   render :new, status: :unprocessable_entity
-    # end
-  end
+    @rental.renter = current_user
+    if @rental.save
+      redirect_to cars_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+end
 
   private
 

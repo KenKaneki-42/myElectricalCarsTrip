@@ -4,7 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   connect() {
     const dailyPrice = this.data.get("myValue");
-    console.log(this.data.get("myValue"));
   }
 
   diffdate() {
@@ -12,5 +11,9 @@ export default class extends Controller {
       `Hello, ${this.nameTarget.value}!`
       // calcul de la différence des dates
       // dailyprice * diffdate(beggingdate,endingdate)
+  }
+
+  updatePrice() {
+
   }
 }

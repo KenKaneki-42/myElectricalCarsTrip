@@ -1,0 +1,32 @@
+
+<div class="container">
+  <% @rentals.each do |rental| %>
+    <div style="border: solid 1px black" class="my-5">
+      <table class="mx-auto mb-4">
+          <thead>
+              <tr>
+                  <th scope="col" class="px-2">owner name</th>
+                  <th scope="col" class="px-2">beginning date</th>
+                  <th scope="col" class="px-2">ending date</th>
+                  <th scope="col" class="px-2">status</th>
+                  <th scope="col" class="px-2">total price</th>
+
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td scope="row" class="px-2"><%= rental.car.owner.first_name %></td>
+                  <td scope="row" class="px-2"><%= rental.beginning_date %></td>
+                  <td scope="row" class="px-2"><%= rental.ending_date %></td>
+                  <td scope="row" class="px-2"><%= rental.status %></td>
+                  <td scope="row" class="px-2"><%= rental.total_price %></td>
+              </tr>
+          </tbody>
+      </table>
+      <div class="col-9 mb-3 mx-auto" style="border: solid 1px black">
+        <h4 class="text-center">comment</h4>
+        <p class="text-center"><%= rental.comment %>aa</p>
+      </div>
+    </div>
+    <% end %>
+</div>

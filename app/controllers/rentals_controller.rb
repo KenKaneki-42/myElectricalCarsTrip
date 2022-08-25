@@ -7,7 +7,7 @@ class RentalsController < ApplicationController
     @rental.status = "pending"
     @rental.renter = current_user
     if @rental.save
-      redirect_to rental_path(@rental.renter)
+      redirect_to rental_path(@rental)
     else
       render :new, status: :unprocessable_entity
     end

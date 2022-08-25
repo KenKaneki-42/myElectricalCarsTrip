@@ -27,7 +27,7 @@ export default class extends Controller {
     if (Number.isNaN(diff)) {
       this.priceTarget.innerText = 0;
     } else if (diff > 0) {
-      this.priceTarget.innerText = totalPrice;
+      this.priceTarget.innerText = totalPrice + " €";
     } else {
       this.priceTarget.innerText = "";
     }

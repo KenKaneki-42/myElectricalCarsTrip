@@ -14,6 +14,7 @@ class RentalsController < ApplicationController
   end
 
   def show
+    @rentals = Rental.where(":renter_id = #{params[renter]}")
     @rental = Rental.find(params[:id])
   end
 

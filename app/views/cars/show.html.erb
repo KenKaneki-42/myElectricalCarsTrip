@@ -14,26 +14,26 @@
     </div>
   </div>
 
-  <div class="car-show" data-controller="car-show" data-car-show-my-value="<%= @car.daily_price %>">
+  <div class="car_show" data-controller="car-show" data-car-show-my-value="<%= @car.daily_price %>">
+    <h3> Rent Now! </h3>
     <%= simple_form_for([@car, @rental]) do |f| %>
-      <%= f.input :beginning_date, html5: true, input_html: { class: " "} %>
-      <%# demander à simple form for => écris moi blabla %>
-      <%# data-date-target="beginning_date" type="date" %>
-      <%# data-action="click->date#diffdate" normalement %>
-      <%= f.input :ending_date, html5: true %>
-      <%# data-date-target="ending_date" type="date" %>
-      <%# data-action="click->date#diffdate" %>
-      <%# data-date-target="ending_date" type="date" %>
-      <%# data-action="click->date#diffdate" %>
+      <%= f.input :beginning_date, as: :date, html5: true,
+      input_html: { data:{ car_show_target: "start", action:"input->car-show#diffdate"} } %>
+      <%= f.input :ending_date, as: :date, html5: true,
+      input_html: { data:{ car_show_target: "end", action:"input->car-show#diffdate"} } %>
       <%= f.input :comment %>
-      <%= "Total price: " %>
+      <div class="d-flex justify-content-between">
+        <p>Price</p>
+        <div data-car-show-target="price">
+          <p><strong>0</strong><strong>€</strong></p>
+        </div>
+      </div>
+
         <br>
-      <%= f.submit %>
+      <%= f.submit "submit rental", class: "btn btn-primary rounded-4 " %>
     <% end %>
+    <div>
+    <%= link_to "Back to all my rentals", rentals_path %>
+    </div>
   </div>
 </div>
-
-<%# On veut récupérer le tj de la car // l18 et dans connect this.data.get("myValue") %>
-<%# on veut écouter date de début et date de fin %>
-<%# calculer la diff entre les 2 dates %>
-<%# faire le produit de la diff et du tj puis l'afficher dans le form(en dynamique) %>

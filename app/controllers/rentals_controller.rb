@@ -7,18 +7,15 @@ class RentalsController < ApplicationController
     @rental.status = "pending"
     @rental.renter = current_user
     if @rental.save
-      redirect_to cars_path
+      redirect_to rental_path(@rental.renter)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def show
-    @rentals = Rental.where(":renter_id = #{params[renter]}")
-
+    @rental = Rental.find(params[:id])
   end
-
-
 
   private
 

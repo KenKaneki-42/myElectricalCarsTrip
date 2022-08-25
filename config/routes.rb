@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   # url:app/rentals //  rentals#index
-  resources :rentals, only: %i[index]
+  resources :rentals, only: %i[index show]
 
   # !!!! app/owner/rentals // owner/rentals#index. url:"app/owner/rentals/id/validate"
   # !!!! patch:"owner/rentals#validate" url:"app/owner/rentals/id/decline"  patch:"owner/rentals#decline"

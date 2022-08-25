@@ -1,0 +1,26 @@
+
+.h1rental {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding-top: 30px;
+
+}
+
+.btn-primary {
+  display: flex;
+  justify-content: center;
+}
+
+.my-rentals-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+
+.btn-my-car {
+
+  border-radius: 4px;
+}
+
+.card-total {
+  font-weight: bold;
+}

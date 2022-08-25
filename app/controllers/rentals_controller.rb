@@ -20,7 +20,7 @@ class RentalsController < ApplicationController
   private
 
   def rental_params
-    params.require(:rental).permit(:beginning_date, :ending_date, :comment)
+    params.require(:rental).permit(:beginning_date, :ending_date, :comment, :total_price)
   end
 
 end

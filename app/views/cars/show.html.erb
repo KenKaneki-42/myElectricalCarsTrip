@@ -22,6 +22,7 @@
       <%= f.input :ending_date, as: :date, html5: true,
       input_html: { data:{ car_show_target: "end", action:"input->car-show#diffdate"} } %>
       <%= f.input :comment %>
+      <%= f.input :total_price, as: :hidden, input_html: {"data-car-show-target": "savePrice"} %>
       <div class="d-flex justify-content-between">
         <p>Price</p>
         <div data-car-show-target="price">

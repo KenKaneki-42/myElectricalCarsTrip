@@ -1,0 +1,59 @@
+
+  <h2 style="text-align: center;" class="my-5 ">TRANSACTION N°<%= @rental.renter_id %></h2>
+  <div class="row d-flex justify-content-around p-2 transaction-resume w-100 ">
+    <div class="col-4 ml-auto">
+      <div class="mx-auto mb-3 transaction-owner-section ">
+        <h3 class="transaction-owner-section-text mb-4">OWNER</h3>
+        <h4 class="transaction-owner-section-text"><strong><%= @rental.car.owner.last_name %></strong></h4>
+        <p class="transaction-owner-section-text mb-4"><%= @rental.car.owner.first_name %></p>
+        <p class="transaction-owner-section-text mb-0"><%= @rental.car.owner.age %></p>
+      </div>
+
+
+      <div class=" mb-3 transaction-owner-section ">
+        <div class="d-flex justify-content-between mb-4">
+          <div>
+            <p>start at</p>
+            <p><strong><%= @rental.beginning_date %></strong></p>
+          </div>
+          <h4 class="transaction-owner-section-text mb-4 align-self-center" style="color: green;"><%= @rental.total_price %></h4>
+          <div>
+            <p>end at</p>
+            <p><strong><%= @rental.ending_date %></strong></p>
+          </div>
+        </div>
+
+        <p class="transaction-owner-section-text mb-4" style="color: green;">(<%= @rental.car.daily_price %>€  per day)</p>
+
+        <div class="d-flex justify-content-between mb-4">
+          <p>status</p>
+          <% case @rental.status %>
+          <% when "pending" %>
+            <p style="color: orange"><%= @rental.status %></p>
+          <% when "declined" %>
+            <p style="color: red"><%= @rental.status %></p>
+          <% when "accepted" %>
+            <p style="color: green"><%= @rental.status %></p>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="col-7 transaction-owner-section ">
+      <h3 class="transaction-owner-section-text mb-4">CAR INFO</h3>
+      <h4 class="transaction-owner-section-text mb-4"><strong><%= @rental.car.model %></strong></h4>
+
+      <div class="d-flex justify-content-between mb-3">
+        <p class="transaction-owner-section-text">autonomy</p>
+        <p class="transaction-owner-section-text"><%= (@rental.car.autonomy*1.60934).round(1) %></p>
+      </div>
+
+      <div>
+        <h4 class="transaction-owner-section-text mb-4">description</h4>
+        <p><%= @rental.car.description %></p>
+      </div>
+    </div>
+
+  </div>

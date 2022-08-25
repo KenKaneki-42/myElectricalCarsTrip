@@ -6,7 +6,7 @@
         <p><strong><%= "#{@car.model}" %></strong></p>
         <div>
           <p>autonomy</p>
-          <p style="color: #FD1015"><strong><%= @car.autonomy %></strong> kms</p>
+          <p style="color: #FD1015"><strong><%= (@car.autonomy*1.60934).round(1) %></strong> kms</p>
         </div>
       </div>
       <p><strong><%= "#{@car.owner.first_name + " " + @car.owner.last_name}" %></strong></p>

@@ -14,13 +14,13 @@
     </div>
   </div>
 
-  <div class="car_show" data-controller="car-show" data-car-show-my-value="<%= @car.daily_price %>">
+  <div class="car-show" data-controller="car-show" data-car-show-my-value="<%= @car.daily_price %>">
     <%= simple_form_for([@car, @rental]) do |f| %>
-      <%= f.input :beginning_date %>
+      <%= f.input :beginning_date, html5: true, input_html: { class: " "} %>
       <%# demander à simple form for => écris moi blabla %>
       <%# data-date-target="beginning_date" type="date" %>
       <%# data-action="click->date#diffdate" normalement %>
-      <%= f.input :ending_date %>
+      <%= f.input :ending_date, html5: true %>
       <%# data-date-target="ending_date" type="date" %>
       <%# data-action="click->date#diffdate" %>
       <%# data-date-target="ending_date" type="date" %>

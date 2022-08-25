@@ -15,10 +15,7 @@ class RentalsController < ApplicationController
 
   def show
     @rentals = Rental.where(":renter_id = #{params[renter]}")
-
   end
-
-
 
   private
 

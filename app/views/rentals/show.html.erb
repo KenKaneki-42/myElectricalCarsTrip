@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="col-8 mx-auto mt-5 transaction-resume">
+    <h2 style="text-align: center;" class="mb-5">TRANSACTION N°<%= @rental.renter_id %></h2>
+    <div class="col-4 mx-auto mb-3 transaction-owner-section ">
+        <h4 class="transaction-owner-section-text"><strong><%= @rental.car.owner.last_name %></strong></h4>
+        <p class="transaction-owner-section-text"><%= @rental.car.owner.first_name %></p>
+        <p class="transaction-owner-section-text"><%= @rental.car.owner.age %></p>
+    </div>
+
+    <div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,9 +1,10 @@
 .transaction-owner-section-text{
   text-align: center;
+
 }
 
 .transaction-resume{
-  background-color: #b3c1c7;
+
   border-radius: 2px;
 
   h2{
@@ -11,4 +12,10 @@
     font-weight: bold;
     margin-bottom: 45px;
   }
+}
+
+.transaction-owner-section{
+  border: solid 3px #b5f4f5;
+  border-radius: 8px;
+  padding: 20px;
 }

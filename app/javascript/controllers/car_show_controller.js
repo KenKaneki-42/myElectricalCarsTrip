@@ -3,7 +3,7 @@ import { end } from "@popperjs/core";
 
 // Connects to data-controller="car-show"
 export default class extends Controller {
-  static targets = ["start", "end", "price"]
+  static targets = ["start", "end", "price","savePrice"]
 
   connect() {
     const dailyPrice = this.data.get("myValue");
@@ -28,8 +28,9 @@ export default class extends Controller {
       this.priceTarget.innerText = 0;
     } else if (diff > 0) {
       this.priceTarget.innerText = totalPrice + " €";
+      this.savePriceTarget.value=totalPrice;
     } else {
-      this.priceTarget.innerText = "";
+      this.priceTarget.innerText = "please choose an end date which is after start date";
     }
 
 

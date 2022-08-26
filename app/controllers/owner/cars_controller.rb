@@ -9,6 +9,10 @@ class Owner::CarsController < ApplicationController
     # No route matches [POST] "/cars" jveux aller pour [POST] "owner/cars"
   end
 
+  def index
+    @cars = Car.where(owner: current_user)
+  end
+
   # def create
   #   # @owner = Owner.find(params[:id])
   #   # @owner = User.find(params[:id])

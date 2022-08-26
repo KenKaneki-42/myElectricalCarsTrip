@@ -85,7 +85,6 @@
         <p>
             Last name : <%= @rental.car.owner.last_name %>
             <br>First name : <%= @rental.car.owner.first_name %></br>
-            Age : <%= @rental.car.owner.age %></br>
             Transaction N° : <%= @rental.car.owner.age %></br>
         </p>
       </div>
@@ -169,6 +168,9 @@
 						<p class="legal"> Payment is expected within 31 days; please process this invoice within that time. There will be a 5% interest charge per month on late invoices.
 						</p>
 					</div>
+          <div>
+            <%= link_to "Return to your rentals", rentals_path, class: "btn btn-primary" %>
+          </div>
 
 				</div><!--End InvoiceBot-->
   </div><!--End Invoice-->

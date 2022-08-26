@@ -5,9 +5,10 @@
     <%= f.input :brand, collection: Car::BRAND_CATEGORY %>
     <%= f.input :model %>
     <%= f.input :autonomy %>
+    <%= f.input :photo %>
     <%= f.input :description, minlength: 10 %>
     <%= f.input :daily_price %>
-    <%= f.submit "New car"%>
+    <%= f.submit "New car", class: "btn btn-primary"%>
     <%# <%= user: @owner %>
   <% end %>
 </div>

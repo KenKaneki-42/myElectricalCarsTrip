@@ -16,8 +16,6 @@ export default class extends Controller {
     const dailyPrice = this.data.get("myValue");
     const start_date = new Date(this.startTarget.value);
     const end_date = new Date(this.endTarget.value);
-    // console.log(start_date);
-    // console.log(end_date);
     const diff = (end_date - start_date)/(1000 * 60 * 60 * 24)
     const totalPrice = diff * dailyPrice
     console.log(typeof(diff));
@@ -32,11 +30,6 @@ export default class extends Controller {
     } else {
       this.priceTarget.innerText = "please choose an end date which is after start date";
     }
-
-
-      // calcul de la différence des dates
-      // dailyprice * diffdate(beggingdate,endingdate)
-
   }
 
 

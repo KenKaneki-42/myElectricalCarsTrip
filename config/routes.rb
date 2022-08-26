@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # all cars list: app/cars get:"cars#index"
   # !!!! Create car app/owner/cars/new get:"owner/cars#new" post:"owner/cars#create"
   # all cars list: app/cars/id get:"cars#show // post:"rentals#create". url pour envoi: app/cars/car_id/rentals
-  resources :cars, only: %i[index show] do
+  resources :cars, only: %i[index show create] do
     resources :rentals, only: %i[create]
   end
 
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   # get:"owner/cars#Index".  ( notion de namespace pour la construction des routes)
 
   namespace :owner do
-    resources :cars, only: %i[index create new]
+    resources :cars, only: %i[index new]
     resources :rentals, only: %i[index] do
       member do
         patch :validate

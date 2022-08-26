@@ -14,12 +14,10 @@
           <p class="card-beginning"><%= rental.beginning_date %></p>
           <p class="card-ending"><%= rental.ending_date %></p>
           <p class="card-total"><%= rental.total_price %>€</p>
-          <%= link_to "Return to your rentals", rentals_path() %>
-          <a href="#" class="btn btn-primary btn-my-car">My car</a>
+
+          <%= link_to "Return to your rentals", rental_path(rental), class: "btn btn-primary" %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
-

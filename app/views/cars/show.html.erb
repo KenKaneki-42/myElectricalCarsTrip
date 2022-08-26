@@ -3,38 +3,46 @@
     <%= cl_image_tag("#{@car.photo.key}", :class => "card-img") %>
     <div class="card-body card-text-section">
       <div class="d-flex justify-content-between">
-        <p><strong><%= "#{@car.model}" %></strong></p>
+        <p style="font-size: large"><strong><%= "#{@car.model}" %></strong></p>
         <div>
-          <p>autonomy</p>
-          <p style="color: #FD1015"><strong><%= (@car.autonomy*1.60934).round(1) %></strong> kms</p>
+          <p style="color: #b3c1c7;">autonomy</p>
+          <p style="color: #1555A6"><strong><%= (@car.autonomy*1.60934).round(1) %></strong> kms</p>
         </div>
       </div>
-      <p><strong><%= "#{@car.owner.first_name + " " + @car.owner.last_name}" %></strong></p>
+      <p style="font-size: larger; color: #b3c1c7;"><strong><%= "#{@car.owner.first_name + " " + @car.owner.last_name}" %></strong></p>
       <p><%= @car.description %></p>
     </div>
   </div>
 
-  <div class="car_show" data-controller="car-show" data-car-show-my-value="<%= @car.daily_price %>">
-    <h3> Rent Now! </h3>
+  <div class="car_show showFormContainer p-2" data-controller="car-show" data-car-show-my-value="<%= @car.daily_price %>">
     <%= simple_form_for([@car, @rental]) do |f| %>
-      <%= f.input :beginning_date, as: :date, html5: true,
-      input_html: { data:{ car_show_target: "start", action:"input->car-show#diffdate"} } %>
-      <%= f.input :ending_date, as: :date, html5: true,
-      input_html: { data:{ car_show_target: "end", action:"input->car-show#diffdate"} } %>
+      <h4 class="mx-3"><strong><%= @car.daily_price %>€</strong> per day</h4>
+      <div class="d-flex">
+        <%= f.input :beginning_date, as: :date, html5: true,
+        input_html: { data:{ car_show_target: "start", action:"input->car-show#diffdate"}, style: "border-radius: 8px 0 0 8px; margin-right: 0 !important;" } %>
+        <%= f.input :ending_date, as: :date, html5: true,
+        input_html: { data:{ car_show_target: "end", action:"input->car-show#diffdate"}, style: "border-radius: 0 8px 8px 0; margin-left: 0 !important" } %>
+      </div>
       <%= f.input :comment %>
+      <%= f.submit "book", class: "btn btn-primary rounded-4 col-8 mx-auto mb-5" %>
       <%= f.input :total_price, as: :hidden, input_html: {"data-car-show-target": "savePrice"} %>
-      <div class="d-flex justify-content-between">
-        <p>Price</p>
-        <div data-car-show-target="price">
-          <p><strong>0</strong>€</p>
+      <div class="d-flex justify-content-between ">
+        <p data-car-show-target="dayPrice" ><%= @car.daily_price %>€ x 0</p>
+        <div>
+          <p data-car-show-target="price"><strong>0</strong>€</p>
         </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <p style="display: block;">frais de service</p>
+        <p style="display: block;" data-car-show-target="service"><strong>0</strong>€</p>
+      </div>
+      <hr class="p-2">
+      <div class="d-flex justify-content-between">
+        <p style="display: block;">total</p>
+        <p style="display: block;" data-car-show-target="totalService"><strong>0</strong>€</p>
       </div>
 
         <br>
-      <%= f.submit "submit rental", class: "btn btn-primary rounded-4 " %>
     <% end %>
-    <div>
-    <%= link_to "Back to all my rentals", rentals_path %>
-    </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 
 
-<div class="container d-flex flex-wrap">
+<div class="p-4 d-flex flex-wrap justify-content-evenly py-5">
 
 <% @cars.each do |car| %>
     <div class="card card-cars no-border">
@@ -8,16 +8,16 @@
         <%= cl_image_tag("#{car.photo.key}", :class => "card-img") %>
         <div class="card-body card-text-section">
           <div class="d-flex justify-content-between">
-            <p><strong><%= "#{car.model}" %></strong></p>
+            <p style="font-size: large;"><strong><%= "#{car.model}" %></strong></p>
             <div style="margin-top: 3px">
-              <p style="font-size: smaller"><strong>autonomy</strong></p>
-              <p style="color: #1555A6; margin-bottom: 10px"><strong><%= (car.autonomy*1.60934).round(1) %></strong> kms</p>
+              <p style="font-size: small"><strong>autonomy</strong></p>
+              <p style="color: #1555A6; margin-bottom: 10px; font-size: larger;"><strong><%= (car.autonomy*1.60934).round(1) %></strong> kms</p>
             </div>
           </div>
           <p><strong><%= "#{car.owner.first_name + " " + car.owner.last_name}" %></strong></p>
           <p><%= car.description[0..90] %>...</p>
         </div>
-        <p class="price" style="color: #1555A6"><%= car.daily_price %>€/day</p>
+        <p class="price"><strong style="color: #1555A6; font-size: larger;"><%= car.daily_price %>€</strong>/day</p>
       <% end %>
     </div>
   <% end %>

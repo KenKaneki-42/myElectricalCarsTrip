@@ -19,7 +19,6 @@ class RentalsController < ApplicationController
 
   def index
     @rentals = Rental.where(renter: current_user)
-
   end
 
   private
@@ -27,5 +26,4 @@ class RentalsController < ApplicationController
   def rental_params
     params.require(:rental).permit(:beginning_date, :ending_date, :comment, :total_price)
   end
-
 end

@@ -15,7 +15,7 @@
             </div>
           </div>
           <p><strong><%= "#{car.owner.first_name + " " + car.owner.last_name}" %></strong></p>
-          <p><%= car.description[0..90] %>...</p>
+          <p><%= car.description[0..80] %>...</p>
         </div>
         <p class="price"><strong style="color: #1555A6; font-size: larger;"><%= car.daily_price %>€</strong>/day</p>
       <% end %>

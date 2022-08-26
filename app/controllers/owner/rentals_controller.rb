@@ -1,8 +1,8 @@
 class Owner::RentalsController < ApplicationController
 
   def index
-    @current_user = Rental.find(current_user.id)
-    @rentals = @current_user.car.rentals
+    @current_user = current_user
+    @rentals = @current_user.rentals
   end
 
   def validate

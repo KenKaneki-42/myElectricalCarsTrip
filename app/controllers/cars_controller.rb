@@ -6,6 +6,7 @@ class CarsController < ApplicationController
   def show
     @car = Car.find(params[:id])
     @rental = Rental.new
+    @disable_footer = true
   end
 
   def create

@@ -1,1 +1,28 @@
-<h1>list owner cars</h1>
+<div class= "h1rental">
+  <h1>My Cars to be rent</h1>
+</div>
+
+<div class="d-flex flex-wrap">
+  <%@cars.each do |car|%>
+    <div class="card m-3 my-rentals-card" style="width: 18rem; border-radius: 8px; overflow: hidden;">
+      <%# <img class="card-img-top" src=<%= cl_image_path car.photo.key%>
+      <%# alt="Card image cap"> %>
+      <div class="card-body">
+        <h5 class="card-title"><%= car.model %></h5>
+        <p> <%= car.brand %> </p>
+        <p> <%= car.autonomy %> </p>
+        <p> <%= car.description %> </p>
+        <p> <%= car.daily_price %> </p>
+        <a href="#" class="btn btn-primary btn-my-car">My car</a>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+t.integer "autonomy"
+    t.string "brand"
+    t.string "model"
+    t.text "description"
+    t.bigint "owner_id", null: false
+    t.integer "daily_price"

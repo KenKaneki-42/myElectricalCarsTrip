@@ -11,5 +11,5 @@ class Car < ApplicationRecord
 
   validates :brand, inclusion: { in: BRAND_CATEGORY }
   validates :description, length: { minimum: 10 }
-  validates :autonomy, :description, :brand, :model, :daily_price, :photo, presence: true
+  validates :autonomy, :description, :brand, :model, :daily_price, presence: true
 end

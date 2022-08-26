@@ -25,7 +25,7 @@
           </div>
         </div>
 
-        <p class="transaction-owner-section-text mb-4" style="color: green;">(<%= @rental.car.daily_price %>$  per day)</p>
+        <p class="transaction-owner-section-text mb-4" style="color: green;">(<%= @rental.car.daily_price %>€  per day)</p>
 
         <div class="d-flex justify-content-between mb-4">
           <p>status</p>
@@ -73,7 +73,9 @@
   <div id="invoice-POS">
 
     <center id="top">
-       <%= image_tag "https://media3.giphy.com/media/TIHzMj6YXRNCvmPkRw/200.gif", :class => "avatar" %>
+    <div class="mb-4">
+      <%= image_tag "https://media3.giphy.com/media/TIHzMj6YXRNCvmPkRw/200.gif", :class => "avatar" %>
+    </div>
       <div class="info">
         <h2>MyElectricalCarsTrip</h2>
       </div><!--End Info-->
@@ -85,7 +87,6 @@
         <p>
             Last name : <%= @rental.car.owner.last_name %>
             <br>First name : <%= @rental.car.owner.first_name %></br>
-            Age : <%= @rental.car.owner.age %></br>
             Transaction N° : <%= @rental.car.owner.age %></br>
         </p>
       </div>
@@ -116,7 +117,7 @@
 							<tr class="service">
 								<td class="tableitem"><p class="itemtext">Daily price</p></td>
 								<td class="tableitem"><p class="itemtext"></p></td>
-								<td class="tableitem"><p class="itemtext">$<%= @rental.car.daily_price %></p></td>
+								<td class="tableitem"><p class="itemtext">€<%= @rental.car.daily_price %></p></td>
 							</tr>
 
 							<tr class="service">
@@ -159,7 +160,7 @@
 							<tr class="tabletitle">
 								<td></td>
 								<td><h2><h2></td>
-								<td class="payment "><div class="text-end">$<%= @rental.total_price %></div></td>
+								<td class="payment "><div class="text-end">€<%= @rental.total_price %></div></td>
 
 
 						</table>
@@ -169,6 +170,9 @@
 						<p class="legal"> Payment is expected within 31 days; please process this invoice within that time. There will be a 5% interest charge per month on late invoices.
 						</p>
 					</div>
+          <div>
+            <%= link_to "Return to your rentals", rentals_path, class: "btn btn-primary" %>
+          </div>
 
 				</div><!--End InvoiceBot-->
   </div><!--End Invoice-->

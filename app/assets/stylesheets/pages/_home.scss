@@ -5,18 +5,20 @@
   background-size: cover;
   background-position: 25% 95%;
   padding: 150px 0;
+  height: 100vh;
 }
 
 .banner-home h1 {
-  margin: 0;
+  margin-bottom: 20px;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 42px;
   font-weight: bold;
+  margin-left: 20%;
 }
 
 .banner-home p {
-  font-size: 70px;
+  font-size: 35px;
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -29,9 +31,13 @@
   padding: 16px 32px;
   border-radius: 8px;
   font-weight: bold;
-  background: linear-gradient(#56d947, #56d947);
+  font-size: larger;
+  background: linear-gradient(#56d947bc, #56d947bc);
   transition: background 0.3s ease;
-  border: 1px solid #56d947;
+  border: 1px solid #56d947bc;
+  position: absolute;
+  right: 52%;
+  bottom: 127px;
 }
 
 .btn-gradient-home:hover {
@@ -39,6 +45,8 @@
   color: white;
 }
 
-.ptitle {
-  font-size: 50px !important;
+.landing-text-car{
+  position: absolute;
+  top: 98px;
+  left: 25px;
 }

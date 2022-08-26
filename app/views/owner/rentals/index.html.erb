@@ -1,0 +1,51 @@
+
+<div class="container">
+  <% @rentals.each do |rental| %>
+    <div style="border: solid 1px black" class="my-5">
+      <table class="mx-auto mb-4">
+          <thead>
+              <tr>
+                  <th scope="col" class="px-2">owner name</th>
+                  <th scope="col" class="px-2">beginning date</th>
+                  <th scope="col" class="px-2">ending date</th>
+                  <th scope="col" class="px-2">status</th>
+                  <th scope="col" class="px-2">total price</th>
+
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td scope="row" class="px-2"><%= rental.car.owner.first_name %></td>
+                  <td scope="row" class="px-2"><%= rental.beginning_date %></td>
+                  <td scope="row" class="px-2"><%= rental.ending_date %></td>
+                  <% case rental.status %>
+                  <% when "pending" %>
+                    <td scope="row" class="px-2" style="color: orange;"><%= rental.status %></td>
+                  <% when "accepted" %>
+                    <td scope="row" class="px-2" style="color: green;"><%= rental.status %></td>
+                  <% when "declined" %>
+                   <td scope="row" class="px-2" style="color: red;"><%= rental.status %></td>
+                  <% end %>
+                  <td scope="row" class="px-2"><%= rental.total_price %></td>
+              </tr>
+          </tbody>
+      </table>
+      <div class="col-9 mb-3 mx-auto" style="border: solid 1px black">
+        <h4 class="text-center">comment</h4>
+        <p class="text-center"><%= rental.comment %></p>
+      </div>
+
+      <% unless rental.status != "pending" %>
+        <%= simple_form_for rental, :url => validate_owner_rental_path(rental), :method => :patch do |f| %>
+          <%= f.input :status, as: :hidden, input_html:{ value: "accepted" }%>
+          <%= f.submit "accept", class: "btn btn-success rounded-4 " %>
+        <% end %>
+
+        <%= simple_form_for rental, :url => decline_owner_rental_path(rental), :method => :patch do |f| %>
+          <%= f.input :status, as: :hidden, input_html:{ value: "declined" }%>
+          <%= f.submit "decline", class: "btn btn-danger rounded-4 " %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

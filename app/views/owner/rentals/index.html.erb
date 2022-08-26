@@ -1,21 +1,20 @@
 
-<div class="container">
+<div class="container p-3">
   <% @rentals.each do |rental| %>
-    <div style="border: solid 1px black" class="my-5">
+    <div class="my-5 p-4 jpp">
       <table class="mx-auto mb-4">
           <thead>
               <tr>
-                  <th scope="col" class="px-2">owner name</th>
+                  <th scope="col" class="px-2">renter name</th>
                   <th scope="col" class="px-2">beginning date</th>
                   <th scope="col" class="px-2">ending date</th>
                   <th scope="col" class="px-2">status</th>
                   <th scope="col" class="px-2">total price</th>
-
               </tr>
           </thead>
           <tbody>
               <tr>
-                  <td scope="row" class="px-2"><%= rental.car.owner.first_name %></td>
+                  <td scope="row" class="px-2"><%= rental.renter.last_name %></td>
                   <td scope="row" class="px-2"><%= rental.beginning_date %></td>
                   <td scope="row" class="px-2"><%= rental.ending_date %></td>
                   <% case rental.status %>
@@ -30,13 +29,14 @@
               </tr>
           </tbody>
       </table>
-      <div class="col-9 mb-3 mx-auto" style="border: solid 1px black">
+      <div class="col-9 mb-3 mx-auto jpp">
         <h4 class="text-center">comment</h4>
         <p class="text-center"><%= rental.comment %></p>
       </div>
 
       <% unless rental.status != "pending" %>
-        <%= simple_form_for rental, :url => validate_owner_rental_path(rental), :method => :patch do |f| %>
+        <div class="d-flex justify-content-evenly">
+          <%= simple_form_for rental, :url => validate_owner_rental_path(rental), :method => :patch do |f| %>
           <%= f.input :status, as: :hidden, input_html:{ value: "accepted" }%>
           <%= f.submit "accept", class: "btn btn-success rounded-4 " %>
         <% end %>
@@ -45,6 +45,7 @@
           <%= f.input :status, as: :hidden, input_html:{ value: "declined" }%>
           <%= f.submit "decline", class: "btn btn-danger rounded-4 " %>
         <% end %>
+        </div>
       <% end %>
     </div>
   <% end %>
